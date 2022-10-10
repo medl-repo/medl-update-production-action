@@ -16,5 +16,5 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/test/script.sh
+    - run: ${{ github.action_path }}/script.sh
       shell: bash ${{ inputs.base_branch }} ${{ inputs.merge_branch }}
