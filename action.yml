@@ -1,0 +1,20 @@
+ame: "Medl Update Production"
+description: "Creates a PR to merge staging into production"
+inputs:
+  base_branch:
+    description: "The base branch"
+    required: false
+    default: production
+  merge_branch:
+    description: "The branch being merged"
+    required: false
+    default: staging
+outputs:
+  nothing:
+    description: "Just a simple string"
+    value: "Pushed"
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/test/script.sh
+      shell: bash ${{ inputs.base_branch }} ${{ inputs.merge_branch }}
